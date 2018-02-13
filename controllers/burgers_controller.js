@@ -1,11 +1,12 @@
 const express = require ("express");
+const router = express.Router();
 const burger = require ("../models/burger.js");
 
-const app = express();
+// const app = express();
 
-app.get("/", (req, res) => {
+router.get("/", (req, res) => {
     burger.all((data) => {
-        var homeObject = {
+        let homeObject = {
             burger: data
         };
         console.log(homeObject);
@@ -13,13 +14,13 @@ app.get("/", (req, res) => {
     });
 });
 
-app.post("/api/burgers", (req, res) => {
+router.post("/api/burgers", (req, res) => {
     burger.create([burger_name, devoured], [req.body.burger_name, req.body.devoured], (res) => {
         res.json({id: result.insertId});
     });
 });
 
-app.put("/api/burgers/:id", (req, res) => {
+router.put("/api/burgers/:id", (req, res) => {
     let condition = "id = " + req.params.id;
     console.log("condition", condition);
 
@@ -34,4 +35,4 @@ app.put("/api/burgers/:id", (req, res) => {
 });
 
 
-module.exports = app;
+module.exports = router;
