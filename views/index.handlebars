@@ -1,1 +1,50 @@
-<h1>Eats-Sa-Burger!</h1>
+
+{{!-- <img src="../public/assets/img/freddie-marriage-68449.jpg" alt="Some Image"> --}}
+<p>HELLO!!!!</p>
+
+<h1 class="text-center">Eats-Sa-Burger!</h1>
+
+
+    
+<div id="menu" class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <ul>
+                {{#each homeObject}}
+                    <li>
+                        <p>
+                            {{this.id}}. {{this.burger_name}}
+                        </p>
+                    </li>
+                    {{!-- <div class="btn-group" role="group">
+                        <button id="bur"type="button" class="btn btn-default btn-lg">{{this.id}}. {{this.burger_name}}</button>
+                    </div> --}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</div>
+    
+
+
+<form class="create-form">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <textarea type="text" name="burger"></textarea><br>
+                <button id="addBurger" class="btn btn-primary btn-sm" type="submit">Submit Burger</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script type="text/javascript">
+    //$("#addBurger").on("submit", (event) => {
+      //  event.preventDefault();
+       // let newBurger = {
+        //    burger: 
+       // } 
+   // })
+
+
+</script>
