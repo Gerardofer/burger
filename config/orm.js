@@ -4,12 +4,12 @@ let orm = {
     selectAll: function(tableInput, cb){
         let queryString = "SELECT * FROM " + tableInput + ";";
         connection.query(queryString, (err, result) => {
-            if (err) throw err;
-            
+            if (err) {
+                throw err;
+            };
             cb(result);
         });
     },
-
     InsertOne: function (table, cols, vals, cb){
         let queryString = "INSERT INTO " + table;
         queryString += " (";
@@ -19,7 +19,7 @@ let orm = {
         queryString += printQuestionMarks(vals.length);
         queryString += ") ";
 
-        console.log(queryString);
+        // console.log(queryString);
         connection.query(queryString, vals, (err, result) => {
             if (err) {
                 throw err;
@@ -35,9 +35,12 @@ let orm = {
         queryString += " WHERE ";
         queryString += condition;
 
-        console.log(queryString);
+        // console.log(queryString);
         connection.query(queryString, (err, result) => { 
-            if (err) throw err;
+            if (err) {
+                throw err;
+            };
+            console.log(result);
             cb(result);
         });
     }
@@ -68,6 +71,7 @@ function objToSql(ob) {
             arr.push(key + "=" + value);
         }
     };
+    return arr.toString();
 };
   
 
