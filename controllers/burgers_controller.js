@@ -7,13 +7,13 @@ router.get("/", (req, res) => {
         let homeObject = {
             burger: data
         };
-        console.log(homeObject);
         res.render("index", homeObject);
     });
 });
 
 router.post("/api/burgers", (req, res) => {
-    burger.create(["burger_name", "devoured"], [req.body.burger_name, req.body.devoured], (result) => {
+    burger.create(["burger_name"], [req.body.burger_name], (result) => {
+        console.log(req.body.burger_name);
         res.json({id: result.insertId});
     });
 });

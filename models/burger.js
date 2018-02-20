@@ -9,9 +9,9 @@ let burger = {
     },
 
     create: function (cols, vals, cb){
-        orm.insertOne("burgers", cols, vals, (res) => {
-            console.log(res)
-            cd(res);
+        orm.InsertOne("burgers", cols, vals, (res) => {
+            // console.log(res)
+            cb(res);
         });
     },
 
@@ -24,3 +24,5 @@ let burger = {
 };
 
 module.exports = burger;
+
+// burger.create("burger_name", "Carne Asada Burger");

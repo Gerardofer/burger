@@ -7,23 +7,18 @@ let orm = {
             if (err) {
                 throw err;
             };
+            // console.log(result);
             cb(result);
         });
     },
     InsertOne: function (table, cols, vals, cb){
-        let queryString = "INSERT INTO " + table;
-        queryString += " (";
-        queryString += cols.toString();
-        queryString += ") ";
-        queryString += "VALUES (";
-        queryString += printQuestionMarks(vals.length);
-        queryString += ") ";
+        let queryString = "INSERT INTO " + table + " (" + cols + ") VALUES ('" + vals + "');";
 
-        // console.log(queryString);
-        connection.query(queryString, vals, (err, result) => {
+        connection.query(queryString, (err, result) => {
             if (err) {
                 throw err;
             };
+            // console.log(result);
             cb(result)
         });
     },
@@ -76,3 +71,9 @@ function objToSql(ob) {
   
 
 module.exports = orm;
+
+
+// orm.selectAll("burgers");
+
+//InsertOne: function (table, cols, vals, cb){
+// orm.InsertOne("burgers", "burger_name", "Caraota Burger");

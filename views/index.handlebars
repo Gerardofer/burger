@@ -1,27 +1,23 @@
 
-{{!-- <img src="../public/assets/img/freddie-marriage-68449.jpg" alt="Some Image"> --}}
+
 
 <h1 class="text-center">Eats-Sa-Burger!</h1>
 
 <ul>
-    {{#each burgers}}
-        {{#unless devoured}}
-            {{>burgers/burger-block sleep=true}}
-        {{/unless}}
-    {{/each}}
-</ul>
-
-<ul>
-    {{#each burgers}}
-        {{#if devoured}}   
-            {{> burgers/burger-block devoured=false}}
-        {{/if}}
+    {{#each burger}}
+    <p>
+        {{burger_name}}
+        <button id="dev" class="btn btn-primary btn-md" {{devoured}}>Devoured</button>
+    </p>    
+    
     {{/each}}
 </ul>
 
 <form class="create-form text-center">
-    <div class="form-group">
-        <textarea name="bu"></textarea>
-    </div>
-    <button id="addNew" class="btn btn-primary btn-md"type="submit">Submit</button>
+
+  <div class="form-group">
+    <input type="text" id="bur" name="name">
+  </div>
+
+  <button id="addNew" class="btn btn-primary btn-md" type="submit">Add a Burger</button>
 </form>
