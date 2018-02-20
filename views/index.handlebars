@@ -5,10 +5,10 @@
 
 <ul>
     {{#each burger}}
-    <p>
+    <h3>
         {{burger_name}}
-        <button id="dev" class="btn btn-primary btn-md" {{devoured}}>Devoured</button>
-    </p>    
+        <button data-id="{{id}}" data-devoured="{{devoured}}" class="btn btn-primary btn-md dev">Devoured</button>
+    </h3>    
     
     {{/each}}
 </ul>

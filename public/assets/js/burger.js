@@ -18,5 +18,22 @@ $(function () {
         })
     });
 
-    
+    $(".dev").on("click", (event) => {
+        let id = $(this).data("id");
+        let newDevoured = $(this).data("devoured");
+
+        let devouredState = {
+            devoured: newDevoured
+        };
+
+        $.ajax("/api/burgers" + id, {
+            type: "PUT",
+            data: devouredState
+        }).then(() => {
+            console.log("This is id: ", id);
+            location.reload();    
+        })
+    });
+
+
 });
