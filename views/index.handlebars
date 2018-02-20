@@ -1,17 +1,25 @@
-
-
+<div class="container text-center">
+    <img src="../assets/img/burger-151421_640.png" alt="Burger Image">
+</div>
 
 <h1 class="text-center">Eats-Sa-Burger!</h1>
 
-<ul>
-    {{#each burger}}
-    <h3>
-        {{burger_name}}
-        <button data-id="{{id}}" data-devoured="{{devoured}}" class="btn btn-primary btn-md dev">Devoured</button>
-    </h3>    
-    
-    {{/each}}
-</ul>
+<div class="container">
+    <div id="not-eaten">
+        <ul>
+            {{#each burger}}
+            <h3>
+                {{burger_name}}
+                <button data-id="{{id}}" data-devoured="{{devoured}}" class="btn btn-primary btn-md dev">Devoured</button>
+            </h3>        
+            {{/each}}
+        </ul>
+    </div>
+</div>
+
+<div id="eaten">
+
+</div>
 
 <form class="create-form text-center">
 
