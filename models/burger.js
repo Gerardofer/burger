@@ -3,7 +3,7 @@ const orm = require("../config/orm.js");
 let burger = {
     all: function (cb) {
         orm.selectAll("burgers", (res) => {
-            console.log(res);
+            // console.log(res);
             cb(res);
         });
     },
@@ -15,14 +15,12 @@ let burger = {
         });
     },
 
-    update: function(colVals, condition, cb){
-        orm.updateOne("burgers", colVals, condition, (res) => {
-            console.log(res);
+    update: function(cols, vals, condition, cb){
+        orm.updateOne("burgers", cols, vals, condition, (res) => {
+            // console.log(res);
             cb(res);
         });
     }
 };
 
 module.exports = burger;
-
-// burger.create("burger_name", "Carne Asada Burger");
